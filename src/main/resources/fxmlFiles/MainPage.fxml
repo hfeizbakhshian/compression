@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainPageController">
+   <children>
+      <Button fx:id="zip1BTN" alignment="CENTER" cacheShape="false" contentDisplay="CENTER" layoutX="96.0" layoutY="180.0" mnemonicParsing="false" onAction="#zip1" prefHeight="56.0" prefWidth="126.0" text="ZIP">
+         <font>
+            <Font name="Bernard MT Condensed" size="24.0" />
+         </font>
+         <effect>
+            <Blend mode="DARKEN" />
+         </effect>
+      </Button>
+      <Button fx:id="openBTN" alignment="CENTER" cacheShape="false" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#openFile" prefHeight="56.0" prefWidth="126.0" text="Open">
+         <font>
+            <Font name="Bernard MT Condensed" size="24.0" />
+         </font>
+         <effect>
+            <Blend mode="DARKEN" />
+         </effect>
+      </Button>
+      <Label layoutX="220.0" layoutY="58.0" prefWidth="277.0" text="Selected File Size :" textFill="#ef3603">
+         <font>
+            <Font name="Bradley Hand ITC" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="220.0" layoutY="82.0" prefHeight="25.0" prefWidth="277.0" text="After zip/unzip file size : " textFill="#06629f">
+         <font>
+            <Font name="Bradley Hand ITC" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="221.0" layoutY="30.0" prefHeight="24.0" prefWidth="119.0" text="File Name :">
+         <font>
+            <Font name="Bradley Hand ITC" size="17.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.16" />
+         </effect>
+      </Label>
+      <Label fx:id="secondSizeLBL" layoutX="393.0" layoutY="81.0" prefHeight="26.0" prefWidth="219.0">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="firstSizeLBL" layoutX="359.0" layoutY="57.0" prefHeight="26.0" prefWidth="166.0">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="fileNameLBL" layoutX="312.0" layoutY="29.0" prefHeight="26.0" prefWidth="312.0">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="loadingIMG" fitHeight="56.0" fitWidth="65.0" layoutX="347.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../pics/ic_loading.gif" />
+         </image>
+      </ImageView>
+      <Button fx:id="zip2BTN" alignment="CENTER" cacheShape="false" contentDisplay="CENTER" layoutX="384.0" layoutY="180.0" mnemonicParsing="false" onAction="#zip2" prefHeight="56.0" prefWidth="126.0" text="ZIP">
+         <font>
+            <Font name="Bernard MT Condensed" size="24.0" />
+         </font>
+         <effect>
+            <Blend mode="DARKEN" />
+         </effect>
+      </Button>
+      <Button fx:id="unzip1BTN" alignment="CENTER" cacheShape="false" contentDisplay="CENTER" layoutX="232.0" layoutY="180.0" mnemonicParsing="false" onAction="#unzip1" prefHeight="56.0" prefWidth="126.0" text="UNZIP">
+         <font>
+            <Font name="Bernard MT Condensed" size="24.0" />
+         </font>
+         <effect>
+            <Blend mode="DARKEN" />
+         </effect>
+      </Button>
+      <Button fx:id="unzip2BTN" alignment="CENTER" cacheShape="false" contentDisplay="CENTER" layoutX="525.0" layoutY="180.0" mnemonicParsing="false" onAction="#unzip2" prefHeight="56.0" prefWidth="126.0" text="UNZIP">
+         <font>
+            <Font name="Bernard MT Condensed" size="24.0" />
+         </font>
+         <effect>
+            <Blend mode="DARKEN" />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>
