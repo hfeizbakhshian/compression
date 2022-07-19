@@ -13,24 +13,23 @@ import java.util.Scanner;
 public class Generator {
     private static int n;
     private static File resourcesIn;
-    private static File resourcesOut;
+
     public static void main(String[] args) throws IOException{
         scan();
-        FileWriter inWriter , outWriter;
-        StringBuilder inBuilder , outBuilder;
+        FileWriter inWriter;
+        StringBuilder inBuilder;
         Random random = new Random();
-        File inFile , outFile;
+        File inFile , outFile1 , outFile2;
 
         for(int i = 0; i < n; i++){
             inFile = new File(resourcesIn, i +".txt");
-            outFile = new File(resourcesOut, i +".txt");
-            if(!inFile.createNewFile() || !outFile.createNewFile()){
+            if(!inFile.createNewFile()){
                 continue;
             }
             inWriter = new FileWriter(inFile);
             inBuilder = new StringBuilder();
             for(int j = 0; j< random.nextInt(999951)+50; j++){
-                int code = random.nextInt(128); // 10 digits and 26 letters
+                int code = random.nextInt(128);
                 if (code != '\0' && code != '\b'){
                     inBuilder.append((char) code);
                 }
@@ -38,6 +37,9 @@ public class Generator {
             }
             inWriter.write(inBuilder.toString());
             inWriter.close();
+            HuffmanZipping.beginHuffmanZipping(inFile.getPath());
+            outFile1 = new File(inFile.getPath() + ".huffmanzip");
+            System.out.println(outFile1.length());
         }
     }
     private static void scan(){
@@ -48,10 +50,6 @@ public class Generator {
         resourcesIn = new File("src/main/resources/tests/in/");
         if(!resourcesIn.mkdir())
             for(File file: Objects.requireNonNull(resourcesIn.listFiles()))
-                file.delete();
-        resourcesOut = new File("src/main/resources/tests/out/");
-        if(!resourcesOut.mkdir())
-            for(File file: Objects.requireNonNull(resourcesOut.listFiles()))
                 file.delete();
     }
 }
