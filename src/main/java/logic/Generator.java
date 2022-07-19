@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 
 
-public class RandomString {
+public class Generator {
     private static int n;
     private static File resourcesIn;
     private static File resourcesOut;
