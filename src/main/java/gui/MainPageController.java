@@ -10,10 +10,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
-import logic.HUnzipping;
-import logic.HZipping;
-import logic.LUnzipping;
-import logic.LZipping;
+import logic.*;
 
 import java.io.File;
 import java.net.URL;
@@ -65,7 +62,7 @@ public class MainPageController implements Initializable {
                     new FileChooser.ExtensionFilter("TEXT files (*.txt)", "*.txt");
             fileChooser.getExtensionFilters().add(extFilter1);
             FileChooser.ExtensionFilter extFilter2 =
-                    new FileChooser.ExtensionFilter("Huffman zipped files (*.huffz)", "*.huffz");
+                    new FileChooser.ExtensionFilter("Huffman zipped files (*.huffmanzip)", "*.huffmanzip");
             fileChooser.getExtensionFilters().add(extFilter2);
             FileChooser.ExtensionFilter extFilter3 =
                     new FileChooser.ExtensionFilter("Lun zipped files (*.LmZWp)", "*.LmZWp");
@@ -106,9 +103,9 @@ public class MainPageController implements Initializable {
                 });
 
             }
-            else if (!openedFile.getName().endsWith(".huffz")){
+            else if (!openedFile.getName().endsWith(".huffmanzip")){
                 Platform.runLater(() ->{
-                    Alert alert = new Alert(Alert.AlertType.ERROR , "Please select a huffz file to unzip!");
+                    Alert alert = new Alert(Alert.AlertType.ERROR , "Please select a huffmanzip file to unzip!");
                     alert.setTitle("format error");
                     alert.showAndWait();
                 });
@@ -116,9 +113,9 @@ public class MainPageController implements Initializable {
             }
             else {
                 loadingIMG.setVisible(true);
-                HUnzipping.beginHUnzipping(openedFile.getPath());
+                HuffmanUnZipping.beginHuffmanUnZipping(openedFile.getPath());
                 String s = openedFile.getPath();
-                s = s.substring(0, s.length() - 6);
+                s = s.substring(0, s.length() - 11);
                 anotherFile = new File(s);
 
                 loadingIMG.setVisible(false);
@@ -226,8 +223,8 @@ public class MainPageController implements Initializable {
             }
             else {
                 loadingIMG.setVisible(true);
-                HZipping.beginHZipping(openedFile.getPath());
-                String s = openedFile.getPath() + ".huffz";
+                HuffmanZipping.beginHuffmanZipping(openedFile.getPath());
+                String s = openedFile.getPath() + ".huffmanzip";
                 anotherFile = new File(s);
 
                 loadingIMG.setVisible(false);
